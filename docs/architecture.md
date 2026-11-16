@@ -30,14 +30,31 @@ OctoFit Tracker is a three-tier application for a school fitness program. The st
 
 Record your plan here before editing code.
 
-- Presentation tier decision:
-- Logic tier decision:
-- Data tier decision:
-- Activity tracking approach:
-- Team management approach:
-- Leaderboard approach:
-- Workout suggestions approach:
+-Phase 1: Foundation (Data Tier)
 
+Add Mongoose schema validation to User model (name, email, fitnessGoal required)
+Add Mongoose schema validation to Team model (name, mascot required, members array)
+Add Mongoose schema validation to Activity model (type, user, team, minutes required)
+Add Mongoose schema validation to Workout model (title, focus, minutes, difficulty required)
+This unblocks data-tier tests
+Phase 2: API Layer (Logic Tier)
+5. Implement POST /api/activities (validation + creation)
+6. Implement GET /api/activities (list)
+7. Implement POST /api/teams (validation + creation)
+8. Implement GET /api/teams (list)
+9. Implement GET /api/leaderboard (sum points per team, rank, sort descending)
+
+This unblocks first 3 API tests
+Phase 3: Intelligent Features
+10. Implement workout suggestion algorithm (GET /api/workouts/suggestions/:userEmail)
+- Match user's fitnessGoal or most recent activity type
+- Return first suggestion with matching focus and reason explaining why
+
+Phase 4: Presentation (Frontend)
+11. Implement Activities page (fetch + display, create form)
+12. Implement Teams page (fetch + display, create form with member selection)
+13. Implement Leaderboard page (fetch + display ranked teams)
+14. Implement Workout Suggestions page (fetch by email + display suggestions)
 ## Test plan
 
 Record the commands you run and what each failure means.
